@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import MainTitle from '../../components/MainTitle/MainTitle'
 import MainTodo from '../../components//MainTodo/MainTodo'
 import type { Todo } from '../../types/Todo'

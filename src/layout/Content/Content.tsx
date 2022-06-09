@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-import MainTodo from '../../components/MainTodo/MainTodo'
 import { Todo } from '../../types/Todo'
 import Aside from '../Aside/Aside'
 import Main from '../Main/Main'
 
-interface IProps {
-	title: string
-}
 const Content = () => {
 	const [todos, setTodos] = useState<Todo[]>([
 		{
