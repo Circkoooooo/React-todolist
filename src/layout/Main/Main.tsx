@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
+import MainTitle from '../../components/MainTitle/MainTitle'
+import MainTodo from '../../components//MainTodo/MainTodo'
+import type { Todo } from '../../types/Todo'
 
-const Main = () => {
+interface IProps {
+	title: string,
+	todos: Todo[],
+	setDoneStatus: (id: number) => void
+}
 
+const Main = (props: IProps) => {
+	const todoList = props.todos.map((item, index) => {
+		return (
+			<MainTodo key={index} TodoItem={item} setDone={props.setDoneStatus}></MainTodo>
+		)
+	})
 	return <>
 		<div className='main'>
-
+			<div className='todo'>
+				<MainTitle title={props.title}></MainTitle>
+				{todoList}
+			</div>
 		</div>
 	</>
 }

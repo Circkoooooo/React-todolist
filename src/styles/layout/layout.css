@@ -5,7 +5,7 @@
 }
 
 .header {
-	height: 40px;
+	height: 20px;
 	padding: 20px;
 	background-color: #03a9f4;
 }
@@ -15,11 +15,12 @@
 }
 
 .aside {
-	width: 200px;
-	background-color: #607d8b;
+	width: 300px;
+	background-color: #fafafa;
 	height: 100%;
 }
 .main {
 	flex: 1;
 	background-color: #fff;
+	padding: 40px 20px 20px 40px;
 }
