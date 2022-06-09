@@ -1,0 +1,25 @@
+.container {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	height: 40px;
+	padding: 20px;
+	background-color: #03a9f4;
+}
+.content {
+	flex: 1;
+	display: flex;
+}
+
+.aside {
+	width: 200px;
+	background-color: #607d8b;
+	height: 100%;
+}
+.main {
+	flex: 1;
+	background-color: #fff;
+}
