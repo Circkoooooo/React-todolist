@@ -17,13 +17,13 @@ const Main = (props: IProps) => {
 		)
 	})
 
-	return <>
+	return (
 		<div className='main'>
 			<div className='todo'>
 				<MainTitle title={props.title}></MainTitle>
 				{todoList}
 			</div>
 		</div>
-	</>
+	)
 }
 export default Main
