@@ -7,6 +7,10 @@
 .todo_text {
 	width: 100%;
 	height: 50px;
+	display: flex;
+}
+.todo_id {
+	margin-right: 20px;
 }
 .todo_menu {
 	display: flex;
@@ -28,6 +32,7 @@
 .todo_button > img {
 	width: 16px;
 	height: 16px;
+	user-select: none;
 }
 
 .todo_button:hover {

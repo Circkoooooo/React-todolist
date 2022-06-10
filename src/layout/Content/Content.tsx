@@ -5,15 +5,16 @@ import Main from '../Main/Main'
 
 interface IProps {
 	todos: Todo[],
-	setDoneStatus: (id: number) => void
 }
+
+
 const Content = (props: IProps) => {
 	const todoTitle = 'Today'
-	
+
 	return (
 		<div className='content'>
 			<Aside></Aside>
-			<Main title={todoTitle} todos={props.todos} setDoneStatus={props.setDoneStatus}></Main>
+			<Main title={todoTitle} todos={props.todos}></Main>
 		</div>
 	)
 }

@@ -7,13 +7,12 @@ import type { Todo } from '../../types/Todo'
 interface IProps {
 	title: string,
 	todos: Todo[],
-	setDoneStatus: (id: number) => void
 }
 
 const Main = (props: IProps) => {
 	const todoList = props.todos.map((item, index) => {
 		return (
-			<MainTodo key={index} TodoItem={item} setDoneStatus={props.setDoneStatus}></MainTodo>
+			<MainTodo key={index} TodoItem={item} ></MainTodo>
 		)
 	})
 

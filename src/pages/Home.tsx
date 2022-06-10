@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import Header from '../layout/Header/Header'
 import Content from '../layout/Content/Content'
 import { Todo } from '../types/Todo'
-
-
+interface TodoContext {
+	addTodo: (todo: Todo) => void
+	setDoneStatus: (id: number) => void
+}
+export const TodoContext = React.createContext({} as TodoContext)
 const Home = () => {
 	const [todos, setTodos] = useState<Todo[]>(
 		[
@@ -28,23 +31,36 @@ const Home = () => {
 		]
 	)
 	const setDoneStatus = (id: number): void => {
-		const index = todos.findIndex(item => {
-			return item.id === id
-		})
 		setTodos(
-			todos.map((item, i) => {
-				if (i === index) {
+			todos.map((item) => {
+				if (item.id === id) {
 					item.isDone === false ? item.isDone = true : item.isDone = false
 				}
 				return item
 			})
 		)
 	}
+	// 增加代办事项
+	const addTodo = (todo: Todo): void => {
+		// 查看是否id冲突
+		if (todos.find((item) => item.id === todo.id)) {
+			return
+		}
+		//判断是否没有指定id
+		if (todo.id === undefined || todo.id === null) {
+			//简单用数组长度作为id
+			todo.id = todos.length + 1
+		}
+		setTodos([...todos, todo])
+
+	}
 	return (
 		<div className='container'>
 			<Header></Header>
-			<Content setDoneStatus={setDoneStatus} todos={todos}></Content>
-		</div>
+			<TodoContext.Provider value={{ addTodo: addTodo, setDoneStatus: setDoneStatus }}>
+				<Content todos={todos}></Content>
+			</TodoContext.Provider>
+		</div >
 	)
 }
 export default Home
