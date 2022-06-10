@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Todo } from '../../types/Todo'
 import Aside from '../Aside/Aside'
 import Main from '../Main/Main'

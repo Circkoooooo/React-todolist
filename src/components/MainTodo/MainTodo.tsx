@@ -6,7 +6,7 @@ interface IProps {
 	setDoneStatus: (id: number) => void
 }
 const MainTodo = (props: IProps) => {
-	const renderDone = props.TodoItem.isDone ? (<img src='../../../public/icon/check.svg'></img>) : (<></>)
+	const renderDone = props.TodoItem.isDone ? (<img src='../../../icon/check.svg'></img>) : (<></>)
 
 	const setDone = () => {
 		props.setDoneStatus(props.TodoItem.id)
