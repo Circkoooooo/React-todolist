@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Todo } from '../../types/Todo'
 import Aside from '../Aside/Aside'
 import Main from '../Main/Main'
@@ -25,20 +25,22 @@ const Content = () => {
 		}
 	])
 	const setDoneStatus = (id: number): void => {
-		const newTodos = [...todos]
-		const index = newTodos.findIndex(item => {
+		const index = todos.findIndex(item => {
 			return item.id === id
 		})
-		newTodos[index].isDone === false ? newTodos[index].isDone = true : newTodos[index].isDone = false
-		setTodos(newTodos)
+		setTodos(todos.map((item, i) => {
+			if (i === index) {
+				item.isDone === false ? item.isDone = true : item.isDone = false
+			}
+			return item
+		}))
 	}
-
-	return <>
+	return (
 		<div className='content'>
 			<Aside></Aside>
 			<Main title="Today" todos={todos} setDoneStatus={setDoneStatus}></Main>
 		</div>
-	</>
+	)
 }
 
 export default Content

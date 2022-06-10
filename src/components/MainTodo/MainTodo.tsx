@@ -1,18 +1,16 @@
 import React from 'react'
 import './MainTodo.css'
 import type { Todo } from '../../types/Todo'
-
 interface IProps {
-	TodoItem: Todo
-	setDone: (id: number) => void
+	TodoItem: Todo,
+	setDoneStatus: (id: number) => void
 }
 const MainTodo = (props: IProps) => {
+	const renderDone = props.TodoItem.isDone ? (<img src='../../../public/icon/check.svg'></img>) : (<></>)
+
 	const setDone = () => {
-		props.setDone(props.TodoItem.id)
+		props.setDoneStatus(props.TodoItem.id)
 	}
-
-	const renderDone = props.TodoItem.isDone ? (<img src='../../../assets/check.svg'></img>) : (<></>)
-
 	return (
 		<div className='main_todo'>
 			<div className='todo_menu'>

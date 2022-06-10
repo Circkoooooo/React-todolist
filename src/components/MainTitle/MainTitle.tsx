@@ -1,7 +1,7 @@
 import React from 'react'
 import './MainTitle.css'
 interface IProps {
-	title: string
+	title: string,
 }
 const MainTitle = (props: IProps) => {
 	return (

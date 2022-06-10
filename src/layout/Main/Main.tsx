@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import MainTitle from '../../components/MainTitle/MainTitle'
-import MainTodo from '../../components//MainTodo/MainTodo'
+import MainTodo from '../../components/MainTodo/MainTodo'
 import type { Todo } from '../../types/Todo'
+
 
 interface IProps {
 	title: string,
@@ -12,9 +13,10 @@ interface IProps {
 const Main = (props: IProps) => {
 	const todoList = props.todos.map((item, index) => {
 		return (
-			<MainTodo key={index} TodoItem={item} setDone={props.setDoneStatus}></MainTodo>
+			<MainTodo key={index} TodoItem={item} setDoneStatus={props.setDoneStatus}></MainTodo>
 		)
 	})
+
 	return <>
 		<div className='main'>
 			<div className='todo'>
