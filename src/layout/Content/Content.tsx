@@ -6,8 +6,6 @@ import Main from '../Main/Main'
 interface IProps {
 	todos: Todo[],
 }
-
-
 const Content = (props: IProps) => {
 	const todoTitle = 'Today'
 
