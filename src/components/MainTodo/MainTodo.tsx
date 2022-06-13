@@ -1,11 +1,10 @@
 import React from 'react'
-import './MainTodo.css'
+import './MainTodo.less'
 import type { Todo, TodoAddition } from '../../types/Todo'
 import { TodoContext } from '../../pages/Home'
 interface IProps {
 	TodoItem: Todo,
 }
-
 
 const MainTodo = (props: IProps) => {
 	const renderDone = props.TodoItem.isDone ? (<img src='../../../icon/check.svg'></img>) : (<></>)
@@ -14,10 +13,12 @@ const MainTodo = (props: IProps) => {
 	 * 附加内容参数的配置。
 	 * content:主要内容
 	 */
-	const contentConfig: TodoAddition = [{
-		name: '主要内容',
-		value: props.TodoItem.content as string
-	}]
+	const contentConfig: TodoAddition = [
+		{
+			name: 'content',
+			value: props.TodoItem.content as string,
+		}
+	]
 
 	/**
 	 * 标题组件
@@ -35,14 +36,15 @@ const MainTodo = (props: IProps) => {
 	 */
 	const AdditionalContent = () => {
 		const list = contentConfig.map((item, index) => {
-			return (<div key={index}>{item.value}</div>)
+			return (<div key={index} className={'addition' + ' ' + 'addition_' + item.name}>{item.value}</div>)
 		})
 		return (
-			<div className='todo_content'>
+			<div className='todo_addition'>
 				{list}
 			</div>
 		)
 	}
+
 	return (
 		<div className='main_todo'>
 			<div className='todo_menu'>

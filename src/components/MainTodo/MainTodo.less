@@ -28,17 +28,28 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	img {
+		width: 16px;
+		height: 16px;
+		user-select: none;
+	}
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
 }
-.todo_button > img {
-	width: 16px;
-	height: 16px;
-	user-select: none;
+//内容
+.todo_title {
+	color: @text-color;
+	font-size: @font-size-base;
 }
-
-.todo_button:hover {
-	background-color: rgba(0, 0, 0, 0.05);
-}
-
-.todo_content {
+.todo_addition {
 	display: flex;
+	.addition {
+		margin-right: 10px;
+	}
+
+	.addition_content {
+		color: @text-color-secondary;
+		font-size: @font-size-secondary;
+	}
 }
