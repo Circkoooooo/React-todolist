@@ -4,3 +4,7 @@ export type Todo = {
 	content?: string
 	isDone: boolean
 }
+export type TodoAddition = Array<{
+	name?: string
+	value: string
+}>
