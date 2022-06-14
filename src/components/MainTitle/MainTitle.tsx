@@ -17,15 +17,14 @@ const MainTitle = (props: IProps) => {
 			isDone: false
 		} as Todo
 	}
-	const click = (event: React.MouseEvent) => {
+	const click = () => {
 		todo.addTodo(newTodo())
-		console.log(event)
 	}
 	return (
 		<div className='main_title' >
 			{props.title}
 			< div className='title_menu' >
-				<Button content='点击增加' onClick={(event) => click(event)}></Button>
+				<Button content='点击增加' onClick={click}></Button>
 			</div >
 		</div >
 	)
