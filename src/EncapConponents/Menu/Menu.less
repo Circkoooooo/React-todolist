@@ -1,0 +1,38 @@
+@menu-prefix-cls: yq-menu;
+
+.@{menu-prefix-cls}{
+	text-align: center;
+	&-submenu-title{
+		height: 60px;
+		display: flex;
+		padding-left: 80px;
+		justify-content: flex-start;
+		align-items: center;
+		color:@text-color;
+		cursor: pointer;
+		transition:@transition-config;
+		background-color: #fff;
+		&:hover{
+			color:@primary-color
+		}
+	}
+	&-item{
+		height: 60px;
+		padding-left: 80px;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		list-style: none;
+		cursor: pointer;
+		transition:@transition-config;
+		color:@text-color-secondary;
+		&:hover{
+			color:@primary-color
+		}
+	}
+
+	&-hidden{
+		height: 0;
+		overflow: hidden;
+	}
+}
