@@ -20,11 +20,12 @@ const MainTitle = (props: IProps) => {
 	const click = () => {
 		todo.addTodo(newTodo())
 	}
+
 	return (
 		<div className='main_title' >
 			{props.title}
 			< div className='title_menu' >
-				<Button content='点击增加' onClick={click}></Button>
+				<Button type='primary' value="点击添加" onClick={click}></Button>
 			</div >
 		</div >
 	)

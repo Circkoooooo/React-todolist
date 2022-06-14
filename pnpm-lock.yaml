@@ -7,6 +7,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.27.1
   '@typescript-eslint/parser': ^5.27.1
   '@vitejs/plugin-react': ^1.3.0
+  classnames: ^2.3.1
   eslint: ^8.17.0
   eslint-plugin-react: ^7.30.0
   less: ^4.1.3
@@ -18,6 +19,7 @@ specifiers:
   vite: ^2.9.9
 
 dependencies:
+  classnames: 2.3.1
   less: 4.1.3
   less-loader: 11.0.0_less@4.1.3+webpack@5.73.0
   react: 18.1.0
@@ -856,6 +858,10 @@ packages:
   /chrome-trace-event/1.0.3:
     resolution: {integrity: sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg==}
     engines: {node: '>=6.0'}
+    dev: false
+
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
     dev: false
 
   /color-convert/1.9.3:

@@ -1,12 +1,27 @@
-.yq-button {
+@button-prefix-cls: yq-button;
+
+.@{button-prefix-cls}{
 	padding: 10px;
-	background-color: #1890ff;
 	color: @container-text-color;
 	border-radius: @border-radius-base;
 	border: 1px solid @border-color-base;
 	cursor: pointer;
-	transition: opacity ease-in-out 0.3s;
-	&:hover {
-		opacity: 0.8;
+	transition:all ease-in-out 0.2s;
+
+
+	&-default {
+		background-color: #fff;
+		color:@text-color;
+		&:hover {
+			color: @primary-color;
+			border-color: @primary-color;
+		}
 	}
+	&-primary {
+		background-color: @primary-color;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
 }
