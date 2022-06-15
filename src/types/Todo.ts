@@ -6,5 +6,6 @@ export type Todo = {
 }
 export type TodoAddition = Array<{
 	name?: string
-	value: string
+	icon?: string
+	value?: string
 }>
