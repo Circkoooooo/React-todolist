@@ -5,7 +5,6 @@
 	&-submenu-title{
 		height: 60px;
 		display: flex;
-		padding-left: 80px;
 		justify-content: flex-start;
 		align-items: center;
 		color:@text-color;
@@ -16,16 +15,21 @@
 			color:@primary-color
 		}
 	}
-	&-item{
-		height: 60px;
-		padding-left: 80px;
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
+	&-child{
+		width: 100%;
 		list-style: none;
-		cursor: pointer;
+
+
 		transition:@transition-config;
 		color:@text-color-secondary;
+		
+	}
+	&-item{
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		list-style: none;
+		height: 60px;
 		&:hover{
 			color:@primary-color
 		}

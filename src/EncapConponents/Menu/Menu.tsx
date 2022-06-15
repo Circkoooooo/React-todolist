@@ -2,51 +2,44 @@ import classNames from 'classnames'
 import * as React from 'react'
 import classnamespace from '../classnamespace'
 import './Menu.less'
-interface ChildProps {
-	label: string,
-	key: string
-}
+import MenuItem, { MenuItemProps } from './MenuItem'
+
 interface MenuProps {
 	items: {
 		lable: string,
-		key: string,
-		children?: ChildProps[]
+		key?: React.Key,
+		children?: MenuItemProps[]
 	}[]
 }
 const InternalMenu: React.ForwardRefRenderFunction<unknown, MenuProps> = (props, ref) => {
 	const componentClass = classnamespace.menu
-	const [hidden, setHidden] = React.useState(false)
-	
+	const { items } = props
 	const menuClass = classNames(
 		componentClass
 	)
+
 	const childClassStr = classNames(
-		`${componentClass}-item`,
-		hidden ? `${componentClass}-hidden` : ''
+		`${componentClass}-child`,
 	)
 
-	const { items } = props
-
-	const renderChild = (children: ChildProps[]) => {
-		return children.map(item => {
+	const renderChild = (children: MenuItemProps[]) => {
+		return children.map((item, index) => {
 			return (
-				<ul key={item.key} className={childClassStr}>
-					<li >{item.label}</li>
-				</ul>
+				<MenuItem label={item.label} key={index} isSubMenu={false} ></MenuItem>
 			)
 		})
 	}
 
-	const changeHidden = () => {
-		setHidden(!hidden)
-	}
-	const renderItems = items.map(item => {
+	const renderItems = items.map((item, index) => {
 		return (
-			<li key={item.key} >
-				<div className={`${componentClass}-submenu-title`} onClick={changeHidden}>
-					{item.lable}
-				</div>
-				{item.children ? renderChild(item.children) : null}
+			<li key={index} >
+				<MenuItem label={item.lable} isSubMenu={true}></MenuItem>
+				{
+					item.children && item.children.length !== 0 ?
+						<ul className={childClassStr} >
+							{renderChild(item.children)}
+						</ul> : <></>
+				}
 			</li >
 		)
 	})
@@ -56,7 +49,6 @@ const InternalMenu: React.ForwardRefRenderFunction<unknown, MenuProps> = (props,
 		</ul>
 	)
 }
-
 const Menu = React.forwardRef<unknown, MenuProps>(InternalMenu)
 
 export default Menu
