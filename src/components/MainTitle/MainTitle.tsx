@@ -2,8 +2,7 @@ import React from 'react'
 import { Todo } from '../../types/Todo'
 import './MainTitle.less'
 import { TodoContext } from '../../pages/Home'
-import { Button } from '../../EncapConponents'
-
+import { Button } from 'antd'
 interface IProps {
 	title: string,
 }
@@ -25,7 +24,7 @@ const MainTitle = (props: IProps) => {
 		<div className='main_title' >
 			{props.title}
 			< div className='title_menu' >
-				<Button type='primary' value="点击添加" onClick={click}></Button>
+				<Button type='primary' onClick={click}>点击添加</Button>
 			</div >
 		</div >
 	)

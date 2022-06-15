@@ -1,35 +1,38 @@
 import React from 'react'
-import Menu from '~/EncapConponents/Menu'
+import { Menu } from 'antd'
+import type { MenuProps } from 'antd'
 
+type MenuItem = Required<MenuProps>['items'][number];
+
+function getItem(
+	label: React.ReactNode,
+	key: React.Key,
+	icon?: React.ReactNode,
+	children?: MenuItem[],
+	type?: 'group',
+): MenuItem {
+	return {
+		key,
+		icon,
+		children,
+		label,
+		type,
+	} as MenuItem
+}
+const items: MenuProps['items'] = [
+	getItem('代办', 'todo', <></>, [
+		getItem('Today', 'todo-today', null, [], 'group')
+	])
+]
 const Aside = () => {
-	const items = [{
-		lable: '待办',
-		key: 'menu-today',
-		children: [
-			{
-				label: 'Today',
-				key: 'menu-todo',
-			},
-			{
-				label: 'Clock',
-				key: 'menu-clock',
-			}
-		]
-	},
-	{
-		lable: '日程',
-		key: 'menu-schedule',
-		children: [
-			{
-				label: 'Todo',
-				key: 'schedule-todo',
-			}
-		]
-	}]
-
 	return (
 		<div className='aside'>
-			< Menu items={items} ></Menu>
+			<Menu
+				// style={{ width: '100%' }}
+				defaultSelectedKeys={['1']}
+				defaultOpenKeys={['sub1']}
+				mode="inline"
+				items={items}></Menu>
 		</div>
 	)
 }

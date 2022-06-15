@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Header from '../layout/Header/Header'
 import Content from '../layout/Content/Content'
 import { Todo } from '../types/Todo'
+
 interface TodoContext {
 	addTodo: (todo: Todo) => void
 	setDoneStatus: (id: number) => void
