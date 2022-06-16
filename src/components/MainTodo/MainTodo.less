@@ -40,17 +40,16 @@
 		}
 
 		.text_content {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: flex-start;
 			//内容
 			.todo_title {
 				color: @text-color;
 				font-size: @font-size-base;
 			}
 			.todo_addition {
+				height: 30px;
 				display: flex;
+				justify-content: center;
+				align-items: center;
 				.addition {
 					margin-right: 10px;
 				}
@@ -63,7 +62,7 @@
 					align-items: center;
 				}
 				.addition_add {
-					width: 30px;
+					height: 100%;
 					transition: all @transition-config;
 					cursor: pointer;
 

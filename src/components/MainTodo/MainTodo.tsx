@@ -20,6 +20,7 @@ const MainTodo = (props: IProps) => {
 			value: todo.content as string,
 		}
 	])
+	const [enter, setEnter] = useState(false)
 	/**
 	 * 标题组件
 	 * @returns 
@@ -34,19 +35,33 @@ const MainTodo = (props: IProps) => {
 	 * 附加内容组件
 	 * @returns 
 	 */
-	const AdditionalContent = () => {
+	const AdditionalContent = (props: { isEnter: boolean }) => {
 		const list = contentConfig.map((item, index) => {
 			return (<div key={index} className={'addition' + ' ' + 'addition_' + item.name}>{item.value}</div>)
 		})
 		return (
 			<div className='todo_addition'>
 				{list}
+				{props.isEnter ? <img className='addition addition_add' src="/icon/addto.png" /> : <></>}
 			</div>
 		)
 	}
-
+	/**
+	 * 判断鼠标是否移动进入content中，更新一次页面
+	 * @param status 
+	 * @returns 
+	 */
+	const mouseStatus = (status: 'enter' | 'leave') => {
+		return () => {
+			if (status === 'enter') {
+				setEnter(true)
+			} else {
+				setEnter(false)
+			}
+		}
+	}
 	return (
-		<div className='main_todo'>
+		<div className='main_todo' onMouseEnter={mouseStatus('enter')} onMouseLeave={mouseStatus('leave')}>
 			<div className='todo_text'>
 				<div className='todo_menu'>
 					<div className='todo_button' onClick={() => setDoneStatus(todo.id)}>{renderDone}</div>
@@ -56,7 +71,7 @@ const MainTodo = (props: IProps) => {
 				</div>
 				<div className='text_content'>
 					<TitleContent></TitleContent>
-					<AdditionalContent></AdditionalContent>
+					<AdditionalContent isEnter={enter}></AdditionalContent>
 				</div>
 			</div>
 		</div >
